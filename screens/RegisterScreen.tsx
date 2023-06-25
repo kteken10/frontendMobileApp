@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import axios from 'axios';
-
+import Modal from "react-native-modal";
 import Spacing from "../constants/Spacing";
 import FontSize from "../constants/FontSize";
 import Colors from "../constants/Colors";
@@ -17,7 +17,9 @@ const RegisterScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
   const [nom, setNom] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [numero_telephone, setnumero_telephone] = useState("");
+  const [numero_telephone, setNumeroTelephone] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
 
   const registerVisitor = async () => {
     try {
@@ -30,11 +32,20 @@ const RegisterScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
 
       const response = await axios.post('https://fast-sands-15969-99650e82dc8c.herokuapp.com/visiteurs', data);
 
-      console.log(response.data); // Vous pouvez traiter la réponse de l'API ici
+      console.log(response.data);
 
-      // Naviguez vers une autre page ou effectuez une autre action après l'enregistrement du visiteur
+      setShowModal(true);
+      setModalMessage("Le visiteur a été créé avec succès.");
+
+      setNom("");
+      setEmail("");
+      setPassword("");
+      setNumeroTelephone("");
     } catch (error) {
       console.error(error);
+
+      setShowModal(true);
+      setModalMessage("Une erreur s'est produite lors de la création du visiteur.");
     }
   };
 
@@ -96,7 +107,7 @@ const RegisterScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
             placeholder="Numéro de téléphone"
             insertNumber={true}
             value={numero_telephone}
-            onChangeText={setnumero_telephone}
+            onChangeText={setNumeroTelephone}
           />
         </View>
 
@@ -145,6 +156,15 @@ const RegisterScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
           </Text>
         </TouchableOpacity>
 
+        <Modal isVisible={showModal} backdropOpacity={0.5}>
+          <View style={styles.modalContainer}>
+            <Text style={styles.modalMessage}>{modalMessage}</Text>
+            <TouchableOpacity onPress={() => setShowModal(false)} style={styles.modalButton}>
+              <Ionicons name="checkmark" size={24} color={Colors.onPrimary} />
+            </TouchableOpacity>
+          </View>
+        </Modal>
+
         <View
           style={{
             marginVertical: Spacing * 3,
@@ -154,5 +174,26 @@ const RegisterScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  modalContainer: {
+    backgroundColor: Colors.lightPrimary,
+    padding: Spacing * 3,
+    borderRadius: Spacing,
+    alignItems: "center",
+  },
+  modalMessage: {
+    fontFamily: Font["poppins-regular"],
+    fontSize: FontSize.medium,
+    color: Colors.text,
+    textAlign: "center",
+  },
+  modalButton: {
+    backgroundColor: Colors.primary,
+    padding: Spacing * 2,
+    borderRadius: Spacing,
+    marginTop: Spacing * 2,
+  },
+});
 
 export default RegisterScreen;
