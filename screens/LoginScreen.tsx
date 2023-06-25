@@ -39,7 +39,7 @@ import {
                 marginVertical: Spacing * 3,
               }}
             >
-              Login here
+              Se connecter ici
             </Text>
             <Text
               style={{
@@ -49,7 +49,7 @@ import {
                 textAlign: "center",
               }}
             >
-              Welcome back you've been missed!
+              content de vous revoir parmis nous!!
             </Text>
           </View>
           <View
@@ -62,7 +62,7 @@ import {
           </View>
   
           <View>
-            <Text
+            {/* <Text
               style={{
                 fontFamily: Font["poppins-semiBold"],
                 fontSize: FontSize.small,
@@ -71,7 +71,7 @@ import {
               }}
             >
               Forgot your password ?
-            </Text>
+            </Text> */}
           </View>
   
           <TouchableOpacity
@@ -97,7 +97,7 @@ import {
                 fontSize: FontSize.large,
               }}
             >
-              Sign in
+              connexion
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -114,7 +114,7 @@ import {
                 fontSize: FontSize.small,
               }}
             >
-              Create new account
+              Créer un nouveau compte
             </Text>
           </TouchableOpacity>
   
@@ -123,18 +123,9 @@ import {
               marginVertical: Spacing * 3,
             }}
           >
-            <Text
-              style={{
-                fontFamily: Font["poppins-semiBold"],
-                color: Colors.primary,
-                textAlign: "center",
-                fontSize: FontSize.small,
-              }}
-            >
-              Or continue with
-            </Text>
+           
   
-            <View
+            {/* <View
               style={{
                 marginTop: Spacing,
                 flexDirection: "row",
@@ -183,7 +174,7 @@ import {
                   size={Spacing * 2}
                 />
               </TouchableOpacity>
-            </View>
+            </View> */}
           </View>
         </View>
       </SafeAreaView>

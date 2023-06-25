@@ -39,7 +39,7 @@ import {
                 marginVertical: Spacing * 3,
               }}
             >
-              Create account
+              Créer un nouveau compte 
             </Text>
             <Text
               style={{
@@ -49,7 +49,7 @@ import {
                 textAlign: "center",
               }}
             >
-              Create an account so you can explore all the existing jobs
+              vous devez créer un compe pour pouvoir explorer les véhicules disponibles chez nous
             </Text>
           </View>
           <View
@@ -85,7 +85,7 @@ import {
                 fontSize: FontSize.large,
               }}
             >
-              Sign up
+              Créer
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -102,7 +102,7 @@ import {
                 fontSize: FontSize.small,
               }}
             >
-              Already have an account
+              vous avez déja un compte ? 
             </Text>
           </TouchableOpacity>
   
@@ -111,18 +111,9 @@ import {
               marginVertical: Spacing * 3,
             }}
           >
-            <Text
-              style={{
-                fontFamily: Font["poppins-semiBold"],
-                color: Colors.primary,
-                textAlign: "center",
-                fontSize: FontSize.small,
-              }}
-            >
-              Or continue with
-            </Text>
+            
   
-            <View
+            {/* <View
               style={{
                 marginTop: Spacing,
                 flexDirection: "row",
@@ -171,7 +162,7 @@ import {
                   size={Spacing * 2}
                 />
               </TouchableOpacity>
-            </View>
+            </View> */}
           </View>
         </View>
       </SafeAreaView>

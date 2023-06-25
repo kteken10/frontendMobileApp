@@ -56,7 +56,7 @@ import {
                 marginTop: Spacing * 2,
               }}
             >
-             Vous pouvez explorer autant de voitures que vous le souhaitez, l'aventure sera toujours aussi belle avec nous...
+             Vous pouvez explorer autant de véhicule que vous le souhaitez, l'aventure sera toujours aussi belle avec nous...
             </Text>
           </View>
           <View
