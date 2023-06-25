@@ -41,6 +41,7 @@ const RegisterScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
       setEmail("");
       setPassword("");
       setNumeroTelephone("");
+      navigate("Login"); // Redirection vers la page de connexion
     } catch (error) {
       console.error(error);
 
