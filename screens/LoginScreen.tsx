@@ -61,19 +61,6 @@ import {
             <AppTextInput placeholder="Password" />
           </View>
   
-          <View>
-            {/* <Text
-              style={{
-                fontFamily: Font["poppins-semiBold"],
-                fontSize: FontSize.small,
-                color: Colors.primary,
-                alignSelf: "flex-end",
-              }}
-            >
-              Forgot your password ?
-            </Text> */}
-          </View>
-  
           <TouchableOpacity
             style={{
               padding: Spacing * 2,
@@ -114,7 +101,7 @@ import {
                 fontSize: FontSize.small,
               }}
             >
-              Créer un nouveau compte
+              Créer un nouveau compte ?
             </Text>
           </TouchableOpacity>
   
@@ -123,58 +110,6 @@ import {
               marginVertical: Spacing * 3,
             }}
           >
-           
-  
-            {/* <View
-              style={{
-                marginTop: Spacing,
-                flexDirection: "row",
-                justifyContent: "center",
-              }}
-            >
-              <TouchableOpacity
-                style={{
-                  padding: Spacing,
-                  backgroundColor: Colors.gray,
-                  borderRadius: Spacing / 2,
-                  marginHorizontal: Spacing,
-                }}
-              >
-                <Ionicons
-                  name="logo-google"
-                  color={Colors.text}
-                  size={Spacing * 2}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  padding: Spacing,
-                  backgroundColor: Colors.gray,
-                  borderRadius: Spacing / 2,
-                  marginHorizontal: Spacing,
-                }}
-              >
-                <Ionicons
-                  name="logo-apple"
-                  color={Colors.text}
-                  size={Spacing * 2}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  padding: Spacing,
-                  backgroundColor: Colors.gray,
-                  borderRadius: Spacing / 2,
-                  marginHorizontal: Spacing,
-                }}
-              >
-                <Ionicons
-                  name="logo-facebook"
-                  color={Colors.text}
-                  size={Spacing * 2}
-                />
-              </TouchableOpacity>
-            </View> */}
           </View>
         </View>
       </SafeAreaView>

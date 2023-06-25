@@ -39,7 +39,7 @@ import {
                 marginVertical: Spacing * 3,
               }}
             >
-              Créer un nouveau compte 
+              Créer un compte
             </Text>
             <Text
               style={{
@@ -49,7 +49,7 @@ import {
                 textAlign: "center",
               }}
             >
-              vous devez créer un compe pour pouvoir explorer les véhicules disponibles chez nous
+              vous devez creér un compte pour etre en mesure de visiter nos véhicules
             </Text>
           </View>
           <View
@@ -57,9 +57,9 @@ import {
               marginVertical: Spacing * 3,
             }}
           >
-            <AppTextInput placeholder="Email" />
-            <AppTextInput placeholder="Password" />
-            <AppTextInput placeholder="Confirm Password" />
+            <AppTextInput placeholder="adresse Mail" />
+            <AppTextInput placeholder="Mot de passe" />
+            <AppTextInput placeholder="Confirme l'adresse Mail" />
           </View>
   
           <TouchableOpacity
@@ -85,7 +85,7 @@ import {
                 fontSize: FontSize.large,
               }}
             >
-              Créer
+              Sign up
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -102,7 +102,7 @@ import {
                 fontSize: FontSize.small,
               }}
             >
-              vous avez déja un compte ? 
+              Vous avez déja un compte ?
             </Text>
           </TouchableOpacity>
   
@@ -111,58 +111,9 @@ import {
               marginVertical: Spacing * 3,
             }}
           >
-            
+           
   
-            {/* <View
-              style={{
-                marginTop: Spacing,
-                flexDirection: "row",
-                justifyContent: "center",
-              }}
-            >
-              <TouchableOpacity
-                style={{
-                  padding: Spacing,
-                  backgroundColor: Colors.gray,
-                  borderRadius: Spacing / 2,
-                  marginHorizontal: Spacing,
-                }}
-              >
-                <Ionicons
-                  name="logo-google"
-                  color={Colors.text}
-                  size={Spacing * 2}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  padding: Spacing,
-                  backgroundColor: Colors.gray,
-                  borderRadius: Spacing / 2,
-                  marginHorizontal: Spacing,
-                }}
-              >
-                <Ionicons
-                  name="logo-apple"
-                  color={Colors.text}
-                  size={Spacing * 2}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  padding: Spacing,
-                  backgroundColor: Colors.gray,
-                  borderRadius: Spacing / 2,
-                  marginHorizontal: Spacing,
-                }}
-              >
-                <Ionicons
-                  name="logo-facebook"
-                  color={Colors.text}
-                  size={Spacing * 2}
-                />
-              </TouchableOpacity>
-            </View> */}
+           
           </View>
         </View>
       </SafeAreaView>
