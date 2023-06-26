@@ -18,6 +18,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   const [marqueChecked, setMarqueChecked] = useState<boolean>(false);
   const [couleurChecked, setCouleurChecked] = useState<boolean>(false);
   const [fournisseurChecked, setFournisseurChecked] = useState<boolean>(false);
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
 
   const handleSearch = () => {
     const searchCriteria = {
@@ -30,55 +31,72 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     onSearch(searchCriteria);
   };
 
+  const toggleAccordion = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   return (
     <View style={styles.container}>
-      <View style={styles.checkboxContainer}>
-        <CheckBox checked={typeVehiculeChecked} onPress={() => setTypeVehiculeChecked(!typeVehiculeChecked)} />
-        <Text style={styles.checkboxLabel}>Type de véhicule</Text>
-      </View>
-      {typeVehiculeChecked && (
-        <TextInput
-          style={styles.input}
-          placeholder="Type de véhicule"
-          value={typeVehicule}
-          onChangeText={setTypeVehicule}
-        />
-      )}
-      <View style={styles.checkboxContainer}>
-        <CheckBox checked={marqueChecked} onPress={() => setMarqueChecked(!marqueChecked)} />
-        <Text style={styles.checkboxLabel}>Marque</Text>
-      </View>
-      {marqueChecked && (
-        <TextInput
-          style={styles.input}
-          placeholder="Marque"
-          value={marque}
-          onChangeText={setMarque}
-        />
-      )}
-      <View style={styles.checkboxContainer}>
-        <CheckBox checked={couleurChecked} onPress={() => setCouleurChecked(!couleurChecked)} />
-        <Text style={styles.checkboxLabel}>Couleur</Text>
-      </View>
-      {couleurChecked && (
-        <TextInput
-          style={styles.input}
-          placeholder="Couleur"
-          value={couleur}
-          onChangeText={setCouleur}
-        />
-      )}
-      <View style={styles.checkboxContainer}>
-        <CheckBox checked={fournisseurChecked} onPress={() => setFournisseurChecked(!fournisseurChecked)} />
-        <Text style={styles.checkboxLabel}>Fournisseur</Text>
-      </View>
-      {fournisseurChecked && (
-        <TextInput
-          style={styles.input}
-          placeholder="Fournisseur"
-          value={fournisseur}
-          onChangeText={setFournisseur}
-        />
+      <TouchableOpacity style={styles.accordionHeader} onPress={toggleAccordion}>
+        <Text style={styles.accordionHeaderText}>Recherche avancée</Text>
+      </TouchableOpacity>
+      {!isCollapsed && (
+        <View style={styles.accordionContent}>
+          <View style={styles.checkboxContainer}>
+            <CheckBox
+              checked={typeVehiculeChecked}
+              onPress={() => setTypeVehiculeChecked(!typeVehiculeChecked)}
+            />
+            <Text style={styles.checkboxLabel}>Type de véhicule</Text>
+          </View>
+          {typeVehiculeChecked && (
+            <TextInput
+              style={styles.input}
+              placeholder="Type de véhicule"
+              value={typeVehicule}
+              onChangeText={setTypeVehicule}
+            />
+          )}
+          <View style={styles.checkboxContainer}>
+            <CheckBox checked={marqueChecked} onPress={() => setMarqueChecked(!marqueChecked)} />
+            <Text style={styles.checkboxLabel}>Marque</Text>
+          </View>
+          {marqueChecked && (
+            <TextInput
+              style={styles.input}
+              placeholder="Marque"
+              value={marque}
+              onChangeText={setMarque}
+            />
+          )}
+          <View style={styles.checkboxContainer}>
+            <CheckBox checked={couleurChecked} onPress={() => setCouleurChecked(!couleurChecked)} />
+            <Text style={styles.checkboxLabel}>Couleur</Text>
+          </View>
+          {couleurChecked && (
+            <TextInput
+              style={styles.input}
+              placeholder="Couleur"
+              value={couleur}
+              onChangeText={setCouleur}
+            />
+          )}
+          <View style={styles.checkboxContainer}>
+            <CheckBox
+              checked={fournisseurChecked}
+              onPress={() => setFournisseurChecked(!fournisseurChecked)}
+            />
+            <Text style={styles.checkboxLabel}>Fournisseur</Text>
+          </View>
+          {fournisseurChecked && (
+            <TextInput
+              style={styles.input}
+              placeholder="Fournisseur"
+              value={fournisseur}
+              onChangeText={setFournisseur}
+            />
+          )}
+        </View>
       )}
       <TouchableOpacity style={styles.button} onPress={handleSearch}>
         <Text style={styles.buttonText}>Rechercher</Text>
@@ -89,6 +107,20 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
 const styles = StyleSheet.create({
   container: {
+    marginBottom: Spacing,
+  },
+  accordionHeader: {
+    backgroundColor: Colors.lightPrimary,
+    paddingVertical: Spacing,
+    paddingHorizontal: Spacing * 2,
+    marginBottom: Spacing,
+  },
+  accordionHeaderText: {
+    fontFamily: Font["poppins-regular"],
+    fontSize: 16,
+    color: Colors.primary,
+  },
+  accordionContent: {
     marginBottom: Spacing,
   },
   checkboxContainer: {
