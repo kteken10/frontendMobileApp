@@ -12,8 +12,8 @@ const CarAutomobileDetailsScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={{ uri: vehicleData.image }} />
-      <Text style={styles.title}>{vehicleData.marque}</Text>
-      <Text style={styles.info}>{vehicleData.fournisseur}</Text>
+      <Text style={styles.marque}>{vehicleData.marque}</Text>
+      <Text style={styles.info}>{vehicleData.fournisseur_id}</Text>
       <Text style={styles.info}>Prix: $ {vehicleData.prix}</Text>
     </View>
   );
@@ -31,10 +31,11 @@ const styles = StyleSheet.create({
     height: 200,
     marginBottom: 16,
   },
-  title: {
+  marque: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 8,
+    
   },
   info: {
     fontSize: 16,
