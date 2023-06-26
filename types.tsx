@@ -15,7 +15,9 @@ export type RootStackParamList = {
   Welcome: undefined;
   Login: undefined;
   Register: undefined;
+  Home: undefined; // Ajout de la clé "Home" dans le RootStackParamList
 };
 
-export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
-  NativeStackScreenProps<RootStackParamList, Screen>;
+export type RootStackScreenProps<
+  Screen extends keyof RootStackParamList
+> = NativeStackScreenProps<RootStackParamList, Screen>;
