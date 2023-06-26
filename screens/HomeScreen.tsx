@@ -33,7 +33,7 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
 
   const fetchVehicleData = async () => {
     try {
-      const response = await axios.get("http://your-api-url.com/automobiles");
+      const response = await axios.get("https://fast-sands-15969-99650e82dc8c.herokuapp.com/automobiles");
       const data = response.data;
       setVehicleData(data);
     } catch (error) {
