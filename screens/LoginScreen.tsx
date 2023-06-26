@@ -61,6 +61,19 @@ import {
             <AppTextInput placeholder="Password" />
           </View>
   
+          <View>
+            {/* <Text
+              style={{
+                fontFamily: Font["poppins-semiBold"],
+                fontSize: FontSize.small,
+                color: Colors.primary,
+                alignSelf: "flex-end",
+              }}
+            >
+              Forgot your password ?
+            </Text> */}
+          </View>
+  
           <TouchableOpacity
             style={{
               padding: Spacing * 2,
@@ -101,7 +114,7 @@ import {
                 fontSize: FontSize.small,
               }}
             >
-              Créer un nouveau compte ?
+              Créer un nouveau compte
             </Text>
           </TouchableOpacity>
   
@@ -110,6 +123,8 @@ import {
               marginVertical: Spacing * 3,
             }}
           >
+           
+  
           </View>
         </View>
       </SafeAreaView>
