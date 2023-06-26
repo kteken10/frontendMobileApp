@@ -20,7 +20,7 @@ const CarAutomobileDetailsScreen: React.FC = () => {
         </View>
        
       </View>
-      <Text style={styles.info}>{vehicleData.fournisseur_id}</Text>
+      <Text style={styles.info}>{vehicleData.fournisseur_info.nom_fournisseur}</Text>
     </View>
     
   );
