@@ -15,7 +15,9 @@ export type RootStackParamList = {
   Welcome: undefined;
   Login: undefined;
   Register: undefined;
-  Home: undefined; // Ajout de la clé "Home" dans le RootStackParamList
+  Home: undefined; 
+  CarAutomobileDetails: { vehicleData: Vehicle };
+  
 };
 
 export type RootStackScreenProps<

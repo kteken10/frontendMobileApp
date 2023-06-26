@@ -11,7 +11,9 @@ import Colors from "../constants/Colors";
 import LoginScreen from "../screens/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import Welcome from "../screens/WelcomeScreen";
-import HomeScreen from "../screens/HomeScreen"; // Import du composant HomeScreen
+import HomeScreen from "../screens/HomeScreen";
+import CarAutomobileDetailsScreen from "../screens/CarAutomobileDetailsScreen";
+
 
 import { RootStackParamList } from "../types";
 
@@ -31,10 +33,6 @@ export default function Navigation() {
   );
 }
 
-/**
- * A root stack navigator is often used for displaying modals on top of all other content.
- * https://reactnavigation.org/docs/modal
- */
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
@@ -48,6 +46,8 @@ function RootNavigator() {
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="CarAutomobileDetails" component={ CarAutomobileDetailsScreen} />
+      
     </Stack.Navigator>
   );
 }

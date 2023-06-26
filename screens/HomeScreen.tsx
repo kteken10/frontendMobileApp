@@ -48,7 +48,7 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
               onPress={() => {
                 console.log(`Clic sur le véhicule : ${vehicle.marque}`);
 
-                // Autres actions à exécuter lors du clic sur la carte de véhicule
+                navigation.navigate("CarAutomobileDetails",{vehicleData: vehicle});
               }}
             />
           ))}
