@@ -19,7 +19,7 @@ const CarAutomobile: React.FC<CarAutomobileProps> = ({ image, nom, fournisseur, 
       <View style={styles.detailsContainer}>
         <Text style={styles.nom}>{nom}</Text>
         <Text style={styles.fournisseur}>{fournisseur}</Text>
-        <Text style={styles.prix}>{prix} €</Text>
+        <Text style={styles.prix}>{prix} cfa</Text>
       </View>
     </TouchableOpacity>
   );

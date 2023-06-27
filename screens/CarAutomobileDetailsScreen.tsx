@@ -5,7 +5,8 @@ import { RootStackParamList } from "../types";
 import Colors from "../constants/Colors";
 import Font from "../constants/Font";
 import FontSize from "../constants/FontSize";
-import Spacing from "../constants/Spacing";
+
+import NavigationIcon from "../components/NavigationICon";
 
 type CarAutomobileDetailsScreenRouteProp = RouteProp<RootStackParamList, "CarAutomobileDetails">;
 
@@ -19,11 +20,15 @@ const CarAutomobileDetailsScreen: React.FC = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.header}>
+        <NavigationIcon icon={require("../assets/images/back.png")} screenName="Home" />   
+        <Text style={styles.title}>AutoSearchCar</Text>
+      </View>
       <View style={styles.card}>
         <Image style={[styles.image, { width: imageWidth, height: imageHeight }]} source={{ uri: vehicleData.image }} />
         <View style={styles.contentRow}>
           <Text style={styles.marque}>{vehicleData.marque}</Text>
-          <Text style={styles.marque}>Prix: ${vehicleData.prix}</Text>
+          <Text style={styles.marque}>Prix: cfa{vehicleData.prix}</Text>
         </View>
       </View>
       
@@ -181,6 +186,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     color: Colors.darkText,
     fontFamily: Font["poppins-regular"],
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 16,
+    paddingHorizontal: 4,
+    marginLeft:-190,
+    borderBottomColor: "#e0e0e0",
   },
   specificationCards: {
     flexDirection: "row",

@@ -5,6 +5,7 @@ import SearchBar from "../components/SearchBar";
 import CarAutomobile from "../components/CarAutomobile";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../types";
+import NavigationIcon from "../components/NavigationICon";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 
@@ -39,6 +40,9 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
+        <NavigationIcon icon={require("../assets/images/back.png")} screenName="Login" />
+       
+       
         <Text style={styles.title}>AutoSearchCar</Text>
       </View>
       <View style={styles.content}>
@@ -85,14 +89,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   header: {
+    flexDirection: "row",
+    alignItems: "center",
     paddingVertical: 16,
     paddingHorizontal: 24,
     borderBottomWidth: 1,
     borderBottomColor: "#e0e0e0",
   },
   title: {
+    flex: 1,
     fontSize: 20,
     fontWeight: "bold",
+    marginLeft: 16,
   },
   content: {
     flex: 1,
