@@ -17,6 +17,8 @@ export type RootStackParamList = {
   Register: undefined;
   Home: undefined; 
   CarAutomobileDetails: { vehicleData: Vehicle };
+  DashboardFournisseur:{ fournisseurId: user_id }
+
   
 };
 

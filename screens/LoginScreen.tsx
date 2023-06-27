@@ -15,6 +15,7 @@ import Modal from "react-native-modal";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../types";
 import AppTextInput from "../components/AppTextinput";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Login">;
 
@@ -36,16 +37,30 @@ const LoginScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
         data
       );
 
-      const { user_type, token } = response.data; 
+      const { user_type, token ,user_id} = response.data;
       if (token) {
         showModal("Authentification réussie");
-        navigate("Home");
+
+        // Save user_type and token to AsyncStorage
+        
+        
+        await AsyncStorage.setItem("user_type", user_type);
+        await AsyncStorage.setItem("token", token);
+        await AsyncStorage.setItem("user_id", user_id.toString());
+
+        if (user_type === "fournisseur") {
+          navigate("DashboardFournisseur",{ fournisseurId: user_id });
+        } else {
+          navigate("Home");
+        }
       } else {
         showModal("Identifiant invalide !!");
       }
     } catch (error) {
       console.error(error);
-      showModal("Échec de l'authentification. Une erreur s'est produite.");
+      showModal(
+        "Échec de l'authentification. Une erreur s'est produite."
+      );
     }
   };
 
@@ -76,7 +91,10 @@ const LoginScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
             onChangeText={setPassword}
           />
         </View>
-        <TouchableOpacity onPress={loginUser} style={styles.buttonContainer}>
+        <TouchableOpacity
+          onPress={loginUser}
+          style={styles.buttonContainer}
+        >
           <Text style={styles.buttonText}>connexion</Text>
         </TouchableOpacity>
         <TouchableOpacity

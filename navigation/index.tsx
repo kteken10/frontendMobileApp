@@ -13,6 +13,7 @@ import RegisterScreen from "../screens/RegisterScreen";
 import Welcome from "../screens/WelcomeScreen";
 import HomeScreen from "../screens/HomeScreen";
 import CarAutomobileDetailsScreen from "../screens/CarAutomobileDetailsScreen";
+import DashboardFournisseurScreen from "../screens/DashboardFournisseur";
 
 
 import { RootStackParamList } from "../types";
@@ -46,7 +47,8 @@ function RootNavigator() {
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="CarAutomobileDetails" component={ CarAutomobileDetailsScreen} />
+      <Stack.Screen name="CarAutomobileDetails" component={CarAutomobileDetailsScreen} />
+      <Stack.Screen name="DashboardFournisseur" component={DashboardFournisseurScreen} />
       
     </Stack.Navigator>
   );
