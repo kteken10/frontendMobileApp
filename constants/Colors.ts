@@ -4,6 +4,11 @@ const dark = "#626262";
 const blue = "#1F41BB";
 const gray = "#ECECEC";
 const lightBlue = "#f1f4ff";
+const lightGray = "#F6F6F6";
+const green = "#2ECC71";
+const orange = "#F39C12";
+const red = "#E74C3C";
+const lemonGreen = "#A1E44D";
 
 export default {
   darkText: dark,
@@ -15,4 +20,9 @@ export default {
   borderWithOpacity: "#1f41bb",
   lightPrimary: lightBlue,
   gray: gray,
+  lightGray: lightGray,
+  success: green,
+  warning: orange,
+  error: red,
+  lemonGreen: lemonGreen,
 };
