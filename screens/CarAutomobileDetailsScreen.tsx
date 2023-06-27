@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, Image, Dimensions } from "react-native";
+import { StyleSheet, View, Text, Image, Dimensions,ScrollView } from "react-native";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import { RootStackParamList } from "../types";
 import Colors from "../constants/Colors";
@@ -14,51 +14,67 @@ const CarAutomobileDetailsScreen: React.FC = () => {
   const { vehicleData } = route.params;
 
   const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
-  const imageWidth = screenWidth * 0.8;
+  const imageWidth = screenWidth * 0.92;
   const imageHeight = imageWidth * (9 / 16); // Exemple : ratio de 16:9
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.card}>
         <Image style={[styles.image, { width: imageWidth, height: imageHeight }]} source={{ uri: vehicleData.image }} />
         <View style={styles.contentRow}>
           <Text style={styles.marque}>{vehicleData.marque}</Text>
-          <Text style={styles.prix}>Prix: $ {vehicleData.prix}</Text>
+          <Text style={styles.marque}>Prix: ${vehicleData.prix}</Text>
         </View>
       </View>
+      
       <View style={styles.fournisseurRow}>
         <Image style={styles.logo_fournisseur} source={{ uri: vehicleData.fournisseur_info.logo_fournisseur }} />
-        <Text style={styles.info}> {vehicleData.fournisseur_info.nom_fournisseur}</Text>
+        <Text style={styles.info}>{vehicleData.fournisseur_info.nom_fournisseur}</Text>
+        <View style={styles.contactIconsRow}>
+          <Image style={styles.icon} source={require("../assets/images/phonecall.png")} />
+          <Image style={styles.icon} source={require("../assets/images/whatsapp.png")} />
+        </View>
       </View>
       <View style={styles.row}>
         <View style={styles.minicard}>
           <Text style={styles.label}>Vitesse maximale:</Text>
-          <Text style={styles.value}>{vehicleData.vitesse_maximale}</Text>
+          <Text style={styles.value}>{vehicleData.vitesse_maximale} KM/H</Text>
         </View>
         <View style={styles.minicard}>
           <Text style={styles.label}>Puissance maximale:</Text>
-          <Text style={styles.value}>{vehicleData.puissance_maximale}</Text>
+          <Text style={styles.value}>{vehicleData.puissance_maximale}320 HP</Text>
         </View>
         <View style={styles.minicard}>
           <Text style={styles.label}>Nombre de Chevaux:</Text>
-          <Text style={styles.value}>{vehicleData.moteur}</Text>
+          <Text style={styles.value}>{vehicleData.moteur} CH</Text>
         </View>
       </View>
       <View style={styles.specificationSection}>
         <Text style={styles.specificationTitle}>Spécification</Text>
         <View style={styles.specificationCards}>
-          {/* Ajoutez ici les trois cartes de spécification */}
+          <Text style={styles.description}>{vehicleData.description}</Text>
         </View>
       </View>
-    </View>
+      <View style={styles.contactSection}>
+        <Text style={styles.contactTitle}>Contact</Text>
+        <View style={styles.contactInfo}>
+          <Text style={styles.contactLabel}>Numéro de téléphone:</Text>
+          <Text style={styles.contactValue}>{vehicleData.fournisseur_info.numero_telephone}</Text>
+        </View>
+        <View style={styles.contactInfo}>
+          <Text style={styles.contactLabel}>Adresse e-mail:</Text>
+          <Text style={styles.contactValue}>{vehicleData.fournisseur_info.email}</Text>
+        </View>
+      </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     padding: 16,
-    marginTop: -230,
+    marginTop: 0,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -67,6 +83,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 8,
     width: "100%",
+    height: "30%",
     padding: 2,
     shadowOffset: {
       width: 0,
@@ -83,7 +100,7 @@ const styles = StyleSheet.create({
   },
   minicard: {
     marginTop: 45,
-    backgroundColor: "#fff",
+    backgroundColor: "#FFFFFF",
     borderRadius: 8,
     width: "30%",
     padding: 2,
@@ -98,8 +115,6 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   image: {
-    width: "100%",
-    height: 259,
     marginBottom: 16,
     borderRadius: 8,
     marginTop: 15,
@@ -121,7 +136,7 @@ const styles = StyleSheet.create({
   logo_fournisseur: {
     width: "9%",
     height: "150%",
-    marginLeft: 3,
+    marginLeft: 120,
     borderRadius: 50,
     backgroundColor: "#1F41BB",
   },
@@ -131,13 +146,8 @@ const styles = StyleSheet.create({
     color: Colors.darkText,
     fontFamily: Font["poppins-regular"],
     fontSize: FontSize.small,
-    fontWeight: "500",
-  },
-  prix: {
-    fontSize: 15,
-    fontWeight: "bold",
-    color: Colors.warning,
-    fontFamily: Font["poppins-regular"],
+    fontWeight: "700",
+    textTransform: "uppercase",
   },
   info: {
     fontSize: 16,
@@ -155,7 +165,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 4,
     color: Colors.warning, // Couleur du texte des valeurs correspondantes
-    fontFamily: Font["poppins-regular"],
+    fontFamily: Font["poppins-bold"],
   },
   specificationSection: {
     marginTop: 20,
@@ -176,6 +186,54 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: 10,
+  },
+  description: {
+    fontSize: 16,
+    marginTop: 10,
+    color: Colors.darkText,
+    fontFamily: Font["poppins-regular"],
+  },
+  contactSection: {
+    marginTop: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    backgroundColor: Colors.lightGray,
+    borderRadius: 8,
+    width: "100%",
+  },
+  contactTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 10,
+    color: Colors.darkText,
+    fontFamily: Font["poppins-regular"],
+  },
+  contactInfo: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 10,
+  },
+  contactLabel: {
+    fontSize: 16,
+    marginBottom: 4,
+    color: Colors.darkText,
+    fontFamily: Font["poppins-regular"],
+  },
+  contactValue: {
+    fontSize: 16,
+    marginBottom: 4,
+    color: Colors.darkText,
+    fontFamily: Font["poppins-regular"],
+  },
+  contactIconsRow: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  icon: {
+    width: 30,
+    height: 30,
+    marginLeft: 10,
+    justifyContent: "space-between",
   },
 });
 
