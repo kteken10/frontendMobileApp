@@ -1,0 +1,4 @@
+Process landscape: est une représentation graphique des différents processus 
+et activités d'une entreprise. Il permet de visualiser de manière claire et 
+structurée les différentes étapes impliquées dans les opérations de l'entreprise, 
+ainsi que les acteurs et les flux d'informations associés
