@@ -43,7 +43,6 @@ const RegisterScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
       setPasswordStrength("Fort");
     }
   };
-
   const registerVisitor = async () => {
     try {
       const data = {
@@ -52,7 +51,7 @@ const RegisterScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
         password: password,
         numero_telephone: numero_telephone
       };
-
+  
       const passwordSchema = new PasswordValidator();
       passwordSchema
         .is().min(8)
@@ -61,34 +60,34 @@ const RegisterScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
         .has().digits(1)
         .has().symbols(1)
         .has().not().spaces();
-
+  
       if (!passwordSchema.validate(password)) {
         setShowModal(true);
         setModalMessage("Le mot de passe ne satisfait pas les critères de validation.");
         return;
       }
-
+  
       const response = await axios.post('https://fast-sands-15969-99650e82dc8c.herokuapp.com/visiteurs', data);
-
-      console.log(response.data);
-
+  
       setShowModal(true);
       setModalMessage("Le visiteur a été créé avec succès.");
-
+  
       setNom("");
       setEmail("");
       setPassword("");
       setNumeroTelephone("");
       navigate("Login");
-    } 
-    
-    catch (error) {
-      console.error(error);
-
+    } catch (error: any) {
+      if (error.response && error.response.status === 400) {
+      const errorMessage = error.response.data.message;
       setShowModal(true);
-      setModalMessage("Une erreur s'est produite lors de la création du visiteur.");
+      setModalMessage("un utilisateur possède  déja cette adresse Mail! Désolé");
+      } else {
+        console.error(error);
+      }
     }
   };
+  
 
   return (
     <SafeAreaView>
