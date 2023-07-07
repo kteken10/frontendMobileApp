@@ -1,0 +1,30 @@
+                      Process Landscape: Acquisition des Marchandises
+
+                        Fournisseur
+                            |
+                            |    1. Choix du fournisseur
+                            |    2. Passer la commande
+                            |    3. Régler la facture
+                            |    4. Contacter le transporteur
+                            |    5. Remplir les modalités de transport
+                            |
+                            V
+                       Propriétaire
+                            |
+                            |    6. Confier le bon de commande au magasinier
+                            |
+                            V
+                       Magasinier/Gestionnaire de stock
+                            |
+                            |    7. Réceptionner les marchandises
+                            |    8. Contrôler les quantités et les qualités
+                            |    9. Transporter les articles
+                            |   10. Préparer un rapport sur les marchandises reçues
+                            |
+                            V
+                       Comptable
+                            |
+                            |   11. Affecter une référence aux marchandises
+                            |   12. Ajouter les quantités aux références en machine
+                            |   13. Arrêter l'état final du stock en machine
+

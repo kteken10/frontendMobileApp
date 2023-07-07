@@ -1,4 +1,48 @@
-Process landscape: est une représentation graphique des différents processus 
+Exercice2  Entreprise de construction XYZ
+
+1)Process landscape: est une représentation graphique des différents processus 
 et activités d'une entreprise. Il permet de visualiser de manière claire et 
 structurée les différentes étapes impliquées dans les opérations de l'entreprise, 
 ainsi que les acteurs et les flux d'informations associés
+
+2) Proposition d'un process landscape avec quelques processsus
+
+
+                        Fournisseur
+                            |
+                            |    1. Choix du fournisseur
+                            |    2. Passer la commande
+                            |    3. Régler la facture
+                            |    4. Contacter le transporteur
+                            |    5. Remplir les modalités de transport
+                            |
+                            V
+                       Propriétaire
+                            |
+                            |    6. Confier le bon de commande au magasinier
+                            |
+                            V
+                       Magasinier/Gestionnaire de stock
+                            |
+                            |    7. Réceptionner les marchandises
+                            |    8. Contrôler les quantités et les qualités
+                            |    9. Transporter les articles
+                            |   10. Préparer un rapport sur les marchandises reçues
+                            |
+                            V
+                       Comptable
+                            |
+                            |   11. Affecter une référence aux marchandises
+                            |   12. Ajouter les quantités aux références en machine
+                            |   13. Arrêter l'état final du stock en machine
+3)La cartographie des processus métier permet à une entreprise de :
+
+Visualiser les flux de travail : Elle offre une vue d'ensemble des différentes étapes et des interactions entre les différents acteurs impliqués dans un processus spécifique. Cela permet de comprendre comment les activités sont liées et de détecter les éventuels goulots d'étranglement ou inefficacités.
+
+Identifier les améliorations potentielles : En identifiant les étapes redondantes, les retards ou les problèmes de communication, la cartographie des processus aide à repérer les domaines qui pourraient bénéficier d'améliorations ou d'optimisations. Cela peut conduire à une meilleure utilisation des ressources, à une réduction des coûts et à une amélioration de l'efficacité opérationnelle.
+
+Faciliter la communication et la collaboration : En ayant une vue d'ensemble des processus métier, les différentes parties prenantes peuvent mieux comprendre les rôles et les responsabilités de chacun. Cela favorise la collaboration entre les équipes et facilite la communication en clarifiant les interactions et les dépendances entre les différentes activités.
+
+Documenter les bonnes pratiques : La cartographie des processus permet de documenter les meilleures pratiques et les procédures standard. Cela garantit une compréhension cohérente des processus au sein de l'organisation et facilite la formation des nouveaux employés.
+  
+iF(kteken==true){beat++} 
