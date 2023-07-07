@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import axios from 'axios';
 import Modal from "react-native-modal";
+import PasswordValidator from 'password-validator';
 import Spacing from "../constants/Spacing";
 import FontSize from "../constants/FontSize";
 import Colors from "../constants/Colors";
@@ -20,6 +21,28 @@ const RegisterScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
   const [numero_telephone, setNumeroTelephone] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+  const [passwordStrength, setPasswordStrength] = useState("");
+
+  const checkPasswordStrength = (value: string) => {
+    const passwordSchema = new PasswordValidator();
+    passwordSchema
+      .is().min(8)
+      .has().uppercase()
+      .has().lowercase()
+      .has().digits(1)
+      .has().symbols(1)
+      .has().not().spaces();
+
+    if (!passwordSchema.validate(value)) {
+      setPasswordStrength("Faible");
+    } else if (value.length <12) {
+      setPasswordStrength("Moyen");
+    } else if (value.length < 16) {
+      setPasswordStrength("Satisfaisant");
+    } else {
+      setPasswordStrength("Fort");
+    }
+  };
 
   const registerVisitor = async () => {
     try {
@@ -29,6 +52,21 @@ const RegisterScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
         password: password,
         numero_telephone: numero_telephone
       };
+
+      const passwordSchema = new PasswordValidator();
+      passwordSchema
+        .is().min(8)
+        .has().uppercase()
+        .has().lowercase()
+        .has().digits(1)
+        .has().symbols(1)
+        .has().not().spaces();
+
+      if (!passwordSchema.validate(password)) {
+        setShowModal(true);
+        setModalMessage("Le mot de passe ne satisfait pas les critères de validation.");
+        return;
+      }
 
       const response = await axios.post('https://fast-sands-15969-99650e82dc8c.herokuapp.com/visiteurs', data);
 
@@ -41,7 +79,7 @@ const RegisterScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
       setEmail("");
       setPassword("");
       setNumeroTelephone("");
-      navigate("Login"); // Redirection vers la page de connexion
+      navigate("Login");
     } 
     
     catch (error) {
@@ -104,8 +142,22 @@ const RegisterScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
             placeholder="Mot de passe"
             secureTextEntry
             value={password}
-            onChangeText={setPassword}
+            onChangeText={(value) => {
+              setPassword(value);
+              checkPasswordStrength(value);
+            }}
           />
+          <View
+            style={[
+              styles.passwordStrengthIndicator,
+              passwordStrength === "Faible" && styles.passwordStrengthIndicatorWeak,
+              passwordStrength === "Moyen" && styles.passwordStrengthIndicatorMedium,
+              passwordStrength === "Satisfaisant" && styles.passwordStrengthIndicatorGood,
+              passwordStrength === "Fort" && styles.passwordStrengthIndicatorStrong,
+            ]}
+          >
+            <Text style={styles.passwordStrengthText}>{passwordStrength}</Text>
+          </View>
           <AppTextInput
             placeholder="Numéro de téléphone"
             insertNumber={true}
@@ -189,13 +241,41 @@ const styles = StyleSheet.create({
     fontFamily: Font["poppins-regular"],
     fontSize: FontSize.medium,
     color: Colors.text,
-    textAlign: "center",
+    textAlign:"center",
   },
   modalButton: {
     backgroundColor: Colors.primary,
     padding: Spacing * 2,
     borderRadius: Spacing,
     marginTop: Spacing * 2,
+  },
+  passwordStrengthIndicator: {
+    height: 18,
+    marginTop:-4,
+    marginBottom:15,
+    borderRadius: 10,
+    marginVertical: Spacing,
+    
+  },
+  passwordStrengthIndicatorWeak: {
+    backgroundColor: "#E74C3C",
+  },
+  passwordStrengthIndicatorMedium: {
+    backgroundColor: "#F39C12",
+  },
+  passwordStrengthIndicatorGood: {
+    backgroundColor: "yellow",
+  },
+  passwordStrengthIndicatorStrong: {
+    backgroundColor: "#2ECC71",
+  
+  },
+  passwordStrengthText: {
+    textAlign: "center",
+    fontSize: FontSize.small,
+    color: Colors.text,
+    fontFamily: Font["poppins-regular"],
+   
   },
 });
 

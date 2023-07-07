@@ -46,6 +46,8 @@ const styles = StyleSheet.create({
     padding: Spacing * 2,
     backgroundColor: Colors.lightPrimary,
     borderRadius: Spacing,
+    marginTop:-10,
+    marginBottom:15,
     marginVertical: Spacing,
   },
   focusedInput: {
