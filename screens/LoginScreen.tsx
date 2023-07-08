@@ -148,11 +148,11 @@ const styles = StyleSheet.create({
     fontSize: FontSize.xLarge,
     color: Colors.primary,
     fontFamily: Font["poppins-bold"],
-    marginLeft: -250,
+   
   },
   forgotPasswordText: {
     fontSize: FontSize.small,
-    color: Colors.primary,
+    color: Colors.azureBlue,
     fontFamily: Font["poppins-regular"],
     marginLeft:210
     
