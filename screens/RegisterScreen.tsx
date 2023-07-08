@@ -167,19 +167,7 @@ const RegisterScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
 
         <TouchableOpacity
           onPress={registerVisitor}
-          style={{
-            padding: Spacing * 2,
-            backgroundColor: Colors.primary,
-            marginVertical: Spacing * 3,
-            borderRadius: Spacing,
-            shadowColor: Colors.primary,
-            shadowOffset: {
-              width: 0,
-              height: Spacing,
-            },
-            shadowOpacity: 0.3,
-            shadowRadius: Spacing,
-          }}
+          style={styles.CreateButton}
         >
           <Text
             style={{
@@ -236,6 +224,19 @@ const styles = StyleSheet.create({
     borderRadius: Spacing,
     alignItems: "center",
   },
+  CreateButton:{
+    padding: Spacing * 2,
+    backgroundColor: Colors.azureBlue,
+    marginVertical: Spacing * 3,
+    borderRadius: Spacing,
+    shadowColor: Colors.primary,
+    shadowOffset: {
+      width: 0,
+      height: Spacing,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: Spacing,
+  },
   modalMessage: {
     fontFamily: Font["poppins-regular"],
     fontSize: FontSize.medium,
@@ -243,7 +244,7 @@ const styles = StyleSheet.create({
     textAlign:"center",
   },
   modalButton: {
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.azureBlue,
     padding: Spacing * 2,
     borderRadius: Spacing,
     marginTop: Spacing * 2,

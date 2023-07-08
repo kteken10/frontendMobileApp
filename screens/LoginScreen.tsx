@@ -103,7 +103,7 @@ const LoginScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
           onPress={loginUser}
           style={styles.buttonContainer}
         >
-          <Text style={styles.buttonText}>connexion</Text>
+          <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigate("Register")}
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: FontSize.xLarge,
-    color: Colors.primary,
+    color: Colors.azureBlue,
     fontFamily: Font["poppins-bold"],
    
   },
@@ -158,31 +158,20 @@ const styles = StyleSheet.create({
     
 
   },
-  subtitle: {
-    fontFamily: Font["poppins-semiBold"],
-    fontSize: FontSize.large,
-    maxWidth: "60%",
-    textAlign: "center",
-  },
   formContainer: {},
   buttonContainer: {
+   
     padding: Spacing * 2,
     backgroundColor: Colors.azureBlue,
     marginVertical: Spacing * 3,
     borderRadius: Spacing,
-    shadowColor: Colors.primary,
-    shadowOffset: {
-      width: 0,
-      height: Spacing,
-    },
-    shadowOpacity: 0.3,
     shadowRadius: Spacing,
   },
   buttonText: {
     fontFamily: Font["poppins-bold"],
     color: Colors.onPrimary,
     textAlign: "center",
-    fontSize: FontSize.large,
+    fontSize: FontSize.medium,
   },
   createAccountContainer: {
     padding: Spacing,
