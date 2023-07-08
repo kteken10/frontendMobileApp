@@ -8,7 +8,14 @@ const lightGray = "#F6F6F6";
 const green = "#2ECC71";
 const orange = "#F39C12";
 const red = "#E74C3C";
-const lemonGreen = "#A1E44D";
+const azureBlue = "#007FFF";
+const robinEggBlue = "#00CCCC";
+const skyBlueMisty = "#C6DEFF";
+const iceBlue = "#E0FFFF";
+
+
+
+
 
 export default {
   darkText: dark,
@@ -24,5 +31,9 @@ export default {
   success: green,
   warning: orange,
   error: red,
-  lemonGreen: lemonGreen,
+  azureBlue:azureBlue,
+ 
+  robinEggBlue:robinEggBlue,
+  skyBlueMisty:skyBlueMisty,
+  iceBlue:iceBlue
 };

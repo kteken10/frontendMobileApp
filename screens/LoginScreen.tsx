@@ -154,8 +154,7 @@ const styles = StyleSheet.create({
     fontSize: FontSize.small,
     color: Colors.primary,
     fontFamily: Font["poppins-regular"],
-   
-   
+    marginLeft:210
     
 
   },
@@ -168,7 +167,7 @@ const styles = StyleSheet.create({
   formContainer: {},
   buttonContainer: {
     padding: Spacing * 2,
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.azureBlue,
     marginVertical: Spacing * 3,
     borderRadius: Spacing,
     shadowColor: Colors.primary,
