@@ -4,7 +4,9 @@ import Colors from "../constants/Colors";
 import Font from "../constants/Font";
 import FontSize from "../constants/FontSize";
 import Spacing from "../constants/Spacing";
-
+interface AppTextInputProps extends TextInputProps {
+  icon?: any;
+}
 interface AppTextInputProps extends TextInputProps {
   insertNumber?: boolean;
 }
@@ -48,14 +50,12 @@ const styles = StyleSheet.create({
     borderRadius: Spacing,
     marginTop:-10,
     marginBottom:15,
+    
     marginVertical: Spacing,
   },
   focusedInput: {
-    borderWidth: 3,
-    borderColor: Colors.primary,
-    shadowOffset: { width: 4, height: Spacing },
-    shadowColor: Colors.primary,
-    shadowOpacity: 0.2,
+    borderWidth: 0,
+   
     shadowRadius: Spacing,
   },
 });

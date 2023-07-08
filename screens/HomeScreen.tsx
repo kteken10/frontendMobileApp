@@ -40,7 +40,7 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <NavigationIcon icon={require("../assets/images/back.png")} screenName="Login" />
+        <NavigationIcon icon={require("../assets/icons/back.png")} screenName="Login" />
        
        
         <Text style={styles.title}>AutoSearchCar</Text>

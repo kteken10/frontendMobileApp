@@ -26,12 +26,12 @@ import {
             style={{
               height: height / 2.5,
               width: "100%",
-              paddingHorizontal: Spacing * 2,
+              paddingHorizontal: Spacing * 3,
               marginHorizontal: Spacing * 3
              
             }}
             resizeMode="contain"
-            source={require("../assets/images/welcome-img.png")}
+            source={require("../assets/images/bmw8.png")}
            
           />
           <View
@@ -42,21 +42,23 @@ import {
           >
             <Text
               style={{
+               
                 fontSize: FontSize.xxLarge,
-                color: Colors.primary,
+                color: Colors.azureBlue,
                 fontFamily: Font["poppins-bold"],
                 textAlign: "center",
+                marginTop: Spacing * -6,
               }}
             >
-              Bienvenue sur AutoSearchCar
+              Bienvenue Sur Drive Expo
               
             </Text>
   
             <Text
               style={{
-                fontSize: FontSize.small,
-                color: Colors.text,
-                fontFamily: Font["poppins-regular"],
+                fontSize: FontSize.medium,
+                color: "gray",
+                fontFamily: Font["poppins-semiBold"],
                 textAlign: "center",
                 marginTop: Spacing * 2,
               }}
@@ -69,21 +71,18 @@ import {
               paddingHorizontal: Spacing * 2,
               paddingTop: Spacing * 6,
               flexDirection: "row",
+              marginVertical:Spacing * 13
             }}
           >
             <TouchableOpacity
               onPress={() => navigate("Login")}
               style={{
-                backgroundColor: Colors.primary,
+                backgroundColor: Colors.azureBlue,
                 paddingVertical: Spacing * 1.5,
                 paddingHorizontal: Spacing * 2,
                 width: "48%",
                 borderRadius: Spacing,
-                shadowColor: Colors.primary,
-                shadowOffset: {
-                  width: 0,
-                  height: Spacing,
-                },
+               
                 shadowOpacity: 0.3,
                 shadowRadius: Spacing,
               }}
@@ -91,18 +90,19 @@ import {
               <Text
                 style={{
                   fontFamily: Font["poppins-bold"],
-                  backgroundColor: Colors.primary,
+                 
                   color: Colors.onPrimary,
                   fontSize: FontSize.medium,
                   textAlign: "center",
                 }}
               >
-                S'identifier ?
+                Login
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => navigate("Register")}
               style={{
+                
                 paddingVertical: Spacing * 1.5,
                 paddingHorizontal: Spacing * 2,
                 width: "48%",
@@ -112,12 +112,12 @@ import {
               <Text
                 style={{
                   fontFamily: Font["poppins-bold"],
-                  color: Colors.text,
+                  color: "gray",
                   fontSize: FontSize.medium,
                   textAlign: "center",
                 }}
               >
-                S'enregistrer !
+                SignUp ?
               </Text>
             </TouchableOpacity>
           </View>

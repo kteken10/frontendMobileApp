@@ -36,8 +36,8 @@ const CarAutomobileDetailsScreen: React.FC = () => {
         <Image style={styles.logo_fournisseur} source={{ uri: vehicleData.fournisseur_info.logo_fournisseur }} />
         <Text style={styles.info}>{vehicleData.fournisseur_info.nom_fournisseur}</Text>
         <View style={styles.contactIconsRow}>
-          <Image style={styles.icon} source={require("../assets/images/phonecall.png")} />
-          <Image style={styles.icon} source={require("../assets/images/whatsapp.png")} />
+          <Image style={styles.icon} source={require("../assets/icons/phonecall.png")} />
+          <Image style={styles.icon} source={require("../assets/icons/whatsapp.png")} />
         </View>
       </View>
       <View style={styles.row}>

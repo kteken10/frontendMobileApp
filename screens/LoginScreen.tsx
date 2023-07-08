@@ -80,7 +80,8 @@ const LoginScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
       <View style={styles.container}>
         <Image source={require("../assets/images/Car-Background-PNG-Image.png")} style={styles.logo} />
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>Login</Text>
+        <Image source={require("../assets/icons/avatar1.png")} style={styles.userlogo} />
+
          
         </View>
         <View style={styles.formContainer}>
@@ -205,4 +206,10 @@ const styles = StyleSheet.create({
     height: 100,
     resizeMode: "contain",
   },
+  userlogo: {
+    marginTop: 50,
+    width: "20%",
+    height: 100,
+    resizeMode: "contain",
+  }
 });
