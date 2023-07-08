@@ -25,9 +25,14 @@ import {
           <ImageBackground
             style={{
               height: height / 2.5,
+              width: "100%",
+              paddingHorizontal: Spacing * 2,
+              marginHorizontal: Spacing * 3
+             
             }}
             resizeMode="contain"
             source={require("../assets/images/welcome-img.png")}
+           
           />
           <View
             style={{

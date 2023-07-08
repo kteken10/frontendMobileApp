@@ -5,6 +5,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Image,
 } from "react-native";
 import axios from "axios";
 import Spacing from "../constants/Spacing";
@@ -69,14 +70,18 @@ const LoginScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
     setIsModalVisible(true);
   };
 
+  const handleForgotPassword = () => {
+    // Naviguer vers l'écran de récupération de mot de passe
+    // navigate("ForgotPassword");
+  };
+
   return (
     <SafeAreaView>
       <View style={styles.container}>
+        <Image source={require("../assets/images/Car-Background-PNG-Image.png")} style={styles.logo} />
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>Se connecter ici</Text>
-          <Text style={styles.subtitle}>
-            content de vous revoir parmi nous!!
-          </Text>
+          <Text style={styles.title}>Login</Text>
+         
         </View>
         <View style={styles.formContainer}>
           <AppTextInput
@@ -90,6 +95,9 @@ const LoginScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
             value={password}
             onChangeText={setPassword}
           />
+           <TouchableOpacity onPress={handleForgotPassword}>
+            <Text style={styles.forgotPasswordText}>Forgot Password ?</Text>
+          </TouchableOpacity>
         </View>
         <TouchableOpacity
           onPress={loginUser}
@@ -127,15 +135,29 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   container: {
     padding: Spacing * 2,
+    width: "100%"
   },
   titleContainer: {
     alignItems: "center",
+    marginTop: 80,
+    marginBottom: 25,
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   title: {
     fontSize: FontSize.xLarge,
     color: Colors.primary,
     fontFamily: Font["poppins-bold"],
-    marginVertical: Spacing * 3,
+    marginLeft: -250,
+  },
+  forgotPasswordText: {
+    fontSize: FontSize.small,
+    color: Colors.primary,
+    fontFamily: Font["poppins-regular"],
+   
+   
+    
+
   },
   subtitle: {
     fontFamily: Font["poppins-semiBold"],
@@ -143,9 +165,7 @@ const styles = StyleSheet.create({
     maxWidth: "60%",
     textAlign: "center",
   },
-  formContainer: {
-    marginVertical: Spacing * 3,
-  },
+  formContainer: {},
   buttonContainer: {
     padding: Spacing * 2,
     backgroundColor: Colors.primary,
@@ -190,5 +210,11 @@ const styles = StyleSheet.create({
   modalButtonText: {
     fontSize: 16,
     color: "blue",
+  },
+  logo: {
+    marginTop: 50,
+    width: "100%",
+    height: 100,
+    resizeMode: "contain",
   },
 });
